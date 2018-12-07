@@ -3,27 +3,7 @@ for (i=2; j=process.argv[i]; i++) {
   arguments[i-2]=''+j;
 }
 print=console.log
+// above in place for code-golf.io
 
-nums=['zero','one','two','three','four','five','six','seven','eight','nine']
-pows=['', '','','hundred','thousand']
-teen=['ten','eleven','twelve','thirteen','fourteen','fifteen','sixteen','seventeen','eighteen','nineteen']
-tens=['','','twenty','thirty','forty','fifty','sixty','seventy','eighty','ninety']
-
-for (i=0; n=arguments[i];i++,print(o)) {
-  for (v=0,o='',t=n.length;t;v++,t--) {
-    d=+n[v]
-    e=+n[v+1]
-    switch (t) {
-    case 1:
-      o+=nums[d];
-      break;
-    case 2:
-      o+=((d||e)&&v?'and ':'')+(d==1?teen[e]:(d?tens[d]+(e?'-':''):'')+(e?nums[e]:''))
-      t--
-      break;
-    default:
-      o+=d!=0?nums[d]+' '+pows[t]+' ':''
-      break;
-    }
-  }
-}
+w='0one0two0three0four0five0six0seven0eight0nine0ten0eleven0twelve0thirteen0fourteen0fifteen0sixteen0seventeen0eighteen0nineteen0twenty0thirty0forty0fifty0sixty0seventy0eighty0ninety'.split(0)
+for(x=10,s=i='';n=arguments[i++];)t=n/100|0,d=n%100,print(!+n?'zero':(t>9?w[t/x|0]+' thousand ':s)+(t%x?w[t%x]+' hundred ':s)+(t&&d?'and ':s)+(d<21?w[d]:w[18+d/x|0]+(n%x?'-'+w[n%x]:s)))
